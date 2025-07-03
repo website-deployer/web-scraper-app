@@ -28,6 +28,14 @@ except ImportError:
     OPENAI_AVAILABLE = False
 from datetime import datetime
 
+
+
+# IMPORTANT
+API_KEY = "INSERT API KEY HERE"
+# IMPORTANT
+
+
+
 class ScrapingThread(QThread):
     """Thread for running web scraping operations"""
     progress_updated = pyqtSignal(str)
@@ -985,7 +993,7 @@ class WebScraperApp(QMainWindow):
             try:
                 client = OpenAI(
                     base_url="https://openrouter.ai/api/v1",
-                    api_key="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",
+                    api_key=API_KEY,
                 )
                 system_prompt = """You are an expert website analyst and AI assistant specializing in web scraping analysis. Your role is to:\n\n1. **Analyze website content** - Provide insights about the scraped websites\n2. **Identify patterns** - Find common themes, structures, and content types\n3. **Offer recommendations** - Suggest improvements for SEO, content, or structure\n4. **Answer questions** - Respond to specific queries about the websites\n5. **Provide actionable insights** - Give practical advice based on the data\n\n**Response Guidelines:**\n- Be professional yet conversational\n- Use clear, structured responses with bullet points when appropriate\n- Reference specific websites by title when relevant\n- Provide specific examples from the content\n- Suggest actionable next steps when possible\n- Use markdown formatting for better readability\n\n**Context:** You have access to scraped website data including titles, URLs, content previews, and metadata."""
                 user_prompt = f"""# Website Analysis Request\n\n## User Question\n{user_msg}\n\n## Available Website Data\n{ai_context}\n\n## Instructions\nPlease provide a comprehensive analysis based on the user's question. Use the website data above to support your response. If the question is about specific aspects (SEO, content, structure, etc.), focus your analysis accordingly.\n\n**Format your response with:**\n- Clear headings and structure\n- Specific examples from the websites\n- Actionable insights and recommendations\n- Professional, helpful tone"""

@@ -65,18 +65,6 @@ The application includes a visual HTML preview feature that renders scraped web 
 - **Fallback**: If PyQtWebEngine is not available, shows a text-only preview
 - **Error Handling**: Graceful error messages for invalid HTML content
 
-To test the visual preview functionality:
-```bash
-python test_visual_preview.py
-```
-
-## Testing Duplicate Detection
-
-Test the improved loop prevention and duplicate detection:
-```bash
-python test_duplicate_detection.py
-```
-
 ## Usage
 
 ### 1. Scraping Configuration
@@ -95,7 +83,6 @@ python test_duplicate_detection.py
 - See domain breakdown and word counts
 - Preview content in both text and visual formats
 - Analyze load times and link counts
-- Monitor duplicate detection efficiency
 
 ## Technical Details
 
@@ -109,12 +96,10 @@ python test_duplicate_detection.py
 ## File Structure
 
 ```
-Testing/
+Folder/
 ├── web_scraper_app.py      # Main application
 ├── test_module.py          # Core scraping logic
 ├── test.py                 # Basic functionality tests
-├── test_visual_preview.py  # Visual preview test
-├── test_duplicate_detection.py  # Loop prevention test
 ├── requirements.txt        # Dependencies
 └── README.md              # This file
 ```
@@ -123,8 +108,7 @@ Testing/
 
 ### Visual Preview Not Working
 1. Ensure PyQtWebEngine is installed: `pip install PyQtWebEngine`
-2. Run the test script: `python test_visual_preview.py`
-3. Check console output for import errors
+2. Check console output for import errors
 
 ### Scraping Issues
 1. Verify internet connection
